@@ -1,4 +1,4 @@
-require_relative '../spec_helper'
+require_relative '../../spec_helper'
 
 def does_nothing(model)
   %i(lat? lng?).each do |field|
@@ -6,12 +6,12 @@ def does_nothing(model)
   end
 end
 
-describe Paperclip::Location do
+describe Paperclip::Location::Processor do
   subject { described_class.new nil }
   it { should be_a Paperclip::Processor }
 end
 
-describe Paperclip::Location, '#make' do
+describe Paperclip::Location::Processor, '#make' do
   let(:model) { double :model }
   let(:attachment) { double :attachment, instance: model }
   subject { described_class.new(file, {}, attachment) }
