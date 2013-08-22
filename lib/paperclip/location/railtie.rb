@@ -1,3 +1,6 @@
+require 'paperclip'
+require 'paperclip/location/processor'
+
 module Paperclip
   module Location
     class Railtie < Rails::Railtie

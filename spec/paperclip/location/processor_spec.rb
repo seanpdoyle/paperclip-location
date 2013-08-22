@@ -1,7 +1,7 @@
 require_relative '../../spec_helper'
 
 def does_nothing(model)
-  %i(lat? lng?).each do |field|
+  %w(lat? lng?).each do |field|
     expect(model).not_to receive(field)
   end
 end

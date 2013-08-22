@@ -1,6 +1,5 @@
-require "paperclip"
-require "exifr"
-require 'paperclip/location/railtie' if defined?(Rails)
+require 'paperclip'
+require 'exifr'
 
 module Paperclip
   module Location
