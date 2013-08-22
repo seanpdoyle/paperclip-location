@@ -1,4 +1,6 @@
-# PaperclipLocation
+# Location Paperclip::Processor
+
+[![Build Status](https://travis-ci.org/seanpdoyle/chief.png)](https://travis-ci.org/seanpdoyle/chief)
 
 Extracts GeoLocation data from an image during Paperclip processing
 and attaches it to the associated model.
