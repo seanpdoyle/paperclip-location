@@ -1,6 +1,6 @@
 # Location Paperclip::Processor
 
-[![Build Status](https://travis-ci.org/seanpdoyle/chief.png)](https://travis-ci.org/seanpdoyle/chief)
+[![Build Status](https://travis-ci.org/seanpdoyle/paperclip-location.png)](https://travis-ci.org/seanpdoyle/paperclip-location)
 
 Extracts GeoLocation data from an image during Paperclip processing
 and attaches it to the associated model.
@@ -9,7 +9,7 @@ and attaches it to the associated model.
 
 Add this line to your application's Gemfile:
 ```ruby
-  gem 'location-paperclip-processor', github: 'seanpdoyle/location-paperclip-processor'
+  gem 'paperclip-location', github: 'seanpdoyle/paperclip-location'
 ```
 
 And then execute:
@@ -18,7 +18,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install location-paperclip-processor
+    $ gem install paperclip-location
 
 ## Usage
 
@@ -37,6 +37,17 @@ The processor expects that the model in question has the following:
 
 * `lat` - a float representing the latitude
 * `lng` - a float representing the longitude
+
+If you don't have either, run a migration to add them
+
+```ruby
+class AddLocationToModel < ActiveRecord::Migration
+  def self.change
+    add_column :model, :lat, :float
+    add_column :model, :lng, :float
+  end
+end
+```
 
 These field names will be customizable in future versions
 
