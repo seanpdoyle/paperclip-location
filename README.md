@@ -35,6 +35,7 @@ end
 
 The processor expects that the model in question has the following:
 
+* `location_locked` - a boolean flag to determine if the location has been manually overridden
 * `lat` - a float representing the latitude
 * `lng` - a float representing the longitude
 
@@ -43,6 +44,7 @@ If you don't have either, run a migration to add them
 ```ruby
 class AddLocationToModel < ActiveRecord::Migration
   def self.change
+    add_column :model, :location_locked, :boolean, default: false, null: false
     add_column :model, :lat, :float
     add_column :model, :lng, :float
   end
