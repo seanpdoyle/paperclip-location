@@ -3,7 +3,7 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
-  spec.name          = "paperclip_location"
+  spec.name          = "location-paperclip-processor"
   spec.version       = "0.0.1"
   spec.authors       = ["Sean Doyle"]
   spec.email         = ["sean.p.doyle24@gmail.com"]
