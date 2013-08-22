@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["sean.p.doyle24@gmail.com"]
   spec.description   = %q{extract geolocation information during Paperclip processing}
   spec.summary       = %q{extract geolocation information during Paperclip processing}
-  spec.homepage      = "https://github.com/seanpdoyle/paperclip_location"
+  spec.homepage      = "https://github.com/seanpdoyle/location-paperclip-processor"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
