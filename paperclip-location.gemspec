@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.version       = "0.0.1"
   spec.authors       = ["Sean Doyle"]
   spec.email         = ["sean.p.doyle24@gmail.com"]
-  spec.description   = %q{extract geolocation information during Paperclip processing}
-  spec.summary       = %q{extract geolocation information during Paperclip processing}
+  spec.description   = %q{extract geolocation during Paperclip processing}
+  spec.summary       = %q{extract geolocation EXIF data during Paperclip processing}
   spec.homepage      = "https://github.com/seanpdoyle/paperclip-location"
   spec.license       = "MIT"
 
