@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "paperclip-location"
-  spec.version       = "0.0.1"
+  spec.version       = "0.0.2"
   spec.authors       = ["Sean Doyle"]
   spec.email         = ["sean.p.doyle24@gmail.com"]
   spec.description   = %q{extract geolocation during Paperclip processing}
