@@ -1,14 +1,7 @@
-require 'paperclip'
-require 'paperclip/location/processor'
+require 'paperclip/location/glue'
 
-module Paperclip
-  module Location
-    class Railtie < Rails::Railtie
-      initializer "paperclip-location.configure_rails_initialization" do
-        Paperclip.configure do |c|
-          c.register_processor :location, Paperclip::Location::Processor
-        end
-      end
-    end
+class Paperclip::Location::Railtie < Rails::Railtie
+  initializer "paperclip-location.configure_rails_initialization" do
+    Paperclip::Location::Processor.register!
   end
 end

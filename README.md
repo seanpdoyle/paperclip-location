@@ -8,24 +8,29 @@ and attaches it to the associated model.
 ## Installation
 
 Add this line to your application's Gemfile:
+
 ```ruby
-  gem 'paperclip-location', github: 'seanpdoyle/paperclip-location'
+gem 'paperclip-location'
 ```
 
 And then execute:
 
-    $ bundle
+```console
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install paperclip-location
+```console
+$ gem install paperclip-location
+```
 
 ## Usage
 
 Use it like any other `Paperclip::Processor`
 
 ```ruby
-class PlaceOfInterest < ActiveRecord::Base
+class Place < ActiveRecord::Base
 
   has_attached_file :photo, styles: { large: '600x600#' },
                     processors: [:thumbnail, :location]
@@ -36,17 +41,17 @@ end
 The processor expects that the model in question has the following:
 
 * `location_locked` - a boolean flag to determine if the location has been manually overridden
-* `lat` - a float representing the latitude
-* `lng` - a float representing the longitude
+* `lat` - a decimal representing the latitude
+* `lng` - a decimal representing the longitude
 
 If you don't have either, run a migration to add them
 
 ```ruby
-class AddLocationToModel < ActiveRecord::Migration
+class AddLocationToPlaces < ActiveRecord::Migration
   def self.change
-    add_column :model, :location_locked, :boolean, default: false, null: false
-    add_column :model, :lat, :float
-    add_column :model, :lng, :float
+    add_column :places, :location_locked, :boolean, default: false, null: false
+    add_column :places, :lat, :decimal, precision: 10, scale: 15
+    add_column :places, :lng, :decimal, precision: 10, scale: 15
   end
 end
 ```

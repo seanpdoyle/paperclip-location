@@ -1,2 +1,6 @@
+require 'paperclip'
 require 'paperclip/location/processor'
-require 'paperclip/location/railtie' if defined?(Rails)
+
+if defined?(Rails)
+  require 'paperclip/location/railtie'
+end
