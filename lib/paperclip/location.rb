@@ -1,4 +1,3 @@
-require 'paperclip'
 require 'paperclip/location/processor'
 
 if defined?(Rails)

@@ -4,15 +4,15 @@ require 'exifr'
 module Paperclip::Location
   class Processor < Paperclip::Processor
 
+  def self.register!(name = :location)
+    Paperclip.configure do |c|
+      c.register_processor name, Paperclip::Location::Processor
+    end
+  end
+
   delegate :location_locked?, to: :instance, allow_nil: true
   delegate :instance, to: :attachment, allow_nil: true
   delegate :gps, to: :exif
-
-  def self.register!(name = :location)
-    Paperclip.configure do |c|
-      c.register_processor name, self.class
-    end
-  end
 
   def make
     if can_process?
