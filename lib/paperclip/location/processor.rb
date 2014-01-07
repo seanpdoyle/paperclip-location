@@ -1,14 +1,8 @@
-require 'paperclip'
 require 'exifr'
+require 'paperclip'
+require 'paperclip/location/processor'
 
-module Paperclip::Location
-  class Processor < Paperclip::Processor
-
-  def self.register!(name = :location)
-    Paperclip.configure do |c|
-      c.register_processor name, Paperclip::Location::Processor
-    end
-  end
+class Paperclip::Location::Processor < Paperclip::Processor
 
   delegate :location_locked?, to: :instance, allow_nil: true
   delegate :instance, to: :attachment, allow_nil: true
@@ -30,5 +24,4 @@ module Paperclip::Location
     def exif
       @exif ||= EXIFR::JPEG.new(file.path)
     end
-  end
 end
