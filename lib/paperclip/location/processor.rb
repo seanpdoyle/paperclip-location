@@ -3,7 +3,6 @@ require 'paperclip'
 
 module Paperclip::Location
   class Processor < Paperclip::Processor
-    delegate :location_locked?, to: :instance, allow_nil: true
     delegate :instance, to: :attachment, allow_nil: true
     delegate :gps, to: :exif
 
@@ -22,6 +21,10 @@ module Paperclip::Location
     end
 
     private
+
+    def location_locked?
+      instance.respond_to?(:location_locked?) && instance.location_locked?
+    end
 
     def can_process?
       !location_locked? && gps.present? && instance.present?
