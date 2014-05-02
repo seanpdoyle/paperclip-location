@@ -13,4 +13,10 @@ module Photos
     lat: nil,
     lng: nil
   ).freeze
+
+  INVALID = OpenStruct.new(
+    path: File.join(ROOT, 'not-a-jpg.jpg'),
+    lat: nil,
+    lng: nil
+  )
 end

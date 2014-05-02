@@ -4,7 +4,7 @@ require 'paperclip'
 module Paperclip::Location
   class Processor < Paperclip::Processor
     delegate :instance, to: :attachment, allow_nil: true
-    delegate :gps, to: :exif
+    delegate :gps, to: :exif, allow_nil: true
 
     def self.register!(name = :location)
       Paperclip.configure do |c|
@@ -27,11 +27,13 @@ module Paperclip::Location
     end
 
     def can_process?
-      !location_locked? && gps.present? && instance.present?
+      !location_locked? && gps.present? && instance.present? && exif.present?
     end
 
     def exif
       @exif ||= EXIFR::JPEG.new(file.path)
+    rescue EXIFR::MalformedJPEG => ex
+      nil
     end
   end
 end

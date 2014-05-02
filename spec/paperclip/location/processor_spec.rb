@@ -23,7 +23,7 @@ describe Paperclip::Location::Processor, '#make' do
 
   context "when the model's location is locked" do
     let(:file){ File.new(Photos::WITH_EXIF.path) }
-    
+
     before do
       expect(model).to receive(:location_locked?) { true }
     end
@@ -57,6 +57,18 @@ describe Paperclip::Location::Processor, '#make' do
 
     context 'given a file without EXIF' do
       let(:file){ File.new(Photos::WITHOUT_EXIF.path) }
+
+      after do
+        subject.make
+      end
+
+      it 'does not modify the Attachment model' do
+        does_nothing(model)
+      end
+    end
+
+    context 'given an invalid file' do
+      let(:file){ File.new(Photos::INVALID.path) }
 
       after do
         subject.make
